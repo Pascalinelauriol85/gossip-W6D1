@@ -13,8 +13,11 @@ class StaticController < ApplicationController
    end
 
    def show
-    @gossips = Gossip.find{params[:id]}
+    @gossips = Gossip.find(params[:id])
    end
  
+   def user_show
+    @user = User.find(params[:id])
+  end
 
 end

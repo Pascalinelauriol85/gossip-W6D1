@@ -29,23 +29,11 @@
   <br>
   <br>
   <br>
-<div class= "text-center">
-  <h1><strong><span class='pink'>Gossip</span></strong></h1><br>
-</div>
-
-<div class= "text-center">
-  <h3><strong><span class='pink'><%=@gossips.content%></span></strong></h3><br>
-</div>
-
-<div class= "text-center">
-<a href=<%=user_path(@gossips.user.id)%>><button type="button"class="btn btn-outline-danger btn-lg px-4 me-sm-3 my-3">Vous voulez en savoir plus sur l'auteur</button></a>
-</div>
-
-</header>
- <div class="container bootstrap snippets bootdey carte">
+<div class= "text-center"><h1><strong><span class='pink'>Utilisateur</span></strong></h1><br></div>
+<div class="container bootstrap snippets bootdey carte">
 <div class="panel-body inf-content">
     <div class="row">
-       <div class="col-md-4">
+        <div class="col-md-4">
             <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="https://bootdey.com/img/Content/avatar/avatar7.png" data-original-title="Usuario"> 
             <ul title="Ratings" class="list-inline ratings text-center">
                 <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
@@ -68,30 +56,52 @@
                             </strong>
                         </td>
                         <td class="text-primary">
-                            <%=@gossips.user.first_name%>    
+                            <%=@user.first_name%>    
                         </td>
                     </tr>
                     <tr>        
                         <td>
                             <strong>
-                                <span class="glyphicon glyphicon-lastname text-primary"></span>  
+                                <span class="glyphicon glyphicon-cloud text-primary"></span>  
                                 Last name                                                
                             </strong>
                         </td>
                         <td class="text-primary">
-                            <%=@gossips.user.last_name%> 
+                            <%=@user.last_name%>  
                         </td>
                     </tr>
 
                     <tr>        
                         <td>
                             <strong>
-                                <span class="glyphicon glyphicon-description text-primary"></span>
-                                Contenu                                                
+                                <span class="glyphicon glyphicon-envelope text-primary"></span> 
+                                Email                                                
                             </strong>
                         </td>
                         <td class="text-primary">
-                             <%=@gossips.content%>
+                            <%=@user.email%> 
+                        </td>
+                    </tr>
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-calendar text-primary"></span>
+                                Age                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            <%=@user.age%>
+                        </td>
+                    </tr>
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-calendar text-primary"></span>
+                                Description                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                             <%=@user.description%>
                         </td>
                     </tr>                                    
                 </tbody>
@@ -103,6 +113,4 @@
 </div>                                        
 <p></p>
 
-  
-    
-    </body>
+  </body>

@@ -23,3 +23,15 @@
 .green {
   color:rgb(106, 201, 172); 
 }
+
+.inf-content{
+  border:1px solid #DDDDDD;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);
+}		
+
+.carte {
+  padding-top: 10%;
+}
