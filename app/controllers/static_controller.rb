@@ -10,14 +10,15 @@ class StaticController < ApplicationController
 
   def home
     @gossips = Gossip.all 
-   end
+  end
 
-   def show
-    @gossips = Gossip.find(params[:id])
-   end
+  def show
+   
+  end
  
-   def user_show
+  def user_show
     @user = User.find(params[:id])
   end
 
+ 
 end

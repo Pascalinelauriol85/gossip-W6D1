@@ -1,29 +1,4 @@
 
- <body>  
-  
-  <header> 
-  <div class="fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-        <a class="navbar-brand" href="#">G<span class='pink'>o</span>ssip Pr<span class='pink'>o</span>ject</a>
-            
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarColor01">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href=<%=root_path%>><span class='pink'>Home</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=<%=team_path%>><span class='pink'>Team</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=<%=contact_path%>><span class='pink'>Contact</span></a>
-            </li>
-           </ul>
-        </div>
-      </nav>
-  </div>
-  </header>
 
 
  
@@ -31,8 +6,17 @@
     <div class="container">
       <h1 class="display-4">Voici l'ensemble des <span class='pink'>Gossips</span> !</h1>
       <p class="lead">Tu peux choisir un potin pour afficher la page utilisateur.</p>
+   
+   <a href=<%=new_gossip_path%>><button type="button"class="btn btn-outline-danger btn-lg px-4 me-sm-3 my-3">Céer un potin</button></a>
+
     </div>
+     <% if flash[:notice] %>
+      <br>
+      <div class="container p-1 text-center alert  alert-success" role="alert"><%= flash[:notice] %></div>
+    <% end %>
   </div>
+  </div>
+
 
 
       <%@gossips.each do |gossip|%>
@@ -61,5 +45,5 @@
 <!-- Footer -->
 
 
-  </body>
+  
  
