@@ -7,12 +7,12 @@
   <br>
   <div class="jumbotron text-center mt-5" style="border-top: 40px white solid;">
         <div class="container">
-            <h1 class="display-4">Voici l' <span class='pink'>Utilisateur</span> !</h1>
-                            
+            <h1 class="display-4">Voici <span class='pink'><%=@user.first_name%></span> !</h1>
+             <a href=<%=city_path(@user.city.id)%>><button type="button"class="btn btn-outline btn-lg px-4 me-sm-3 my-3"id="pink-button">Ville de l'auteur</button></a>               
         </div>
     </div>
 
-<div class= "text-center"><h1><strong><span class='pink'>Utilisateur</span></strong></h1><br></div>
+
 <div class="container bootstrap snippets bootdey carte">
 <div class="panel-body inf-content">
     <div class="row">
@@ -23,8 +23,7 @@
                 <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                <li><a href=""><span class="glyphicon glyphicon-star"></span></a></li>
             </ul>
         </div>
         <div class="col-md-6">
@@ -36,22 +35,22 @@
                         <td>
                             <strong>
                                 <span class="glyphicon glyphicon-user  text-primary"></span>    
-                                First name                                                
+                                <p>First name</p>                                                
                             </strong>
                         </td>
                         <td class="text-primary">
-                            <%=@user.first_name%>    
+                            <span class='pink'><%=@user.first_name%></span>    
                         </td>
                     </tr>
                     <tr>        
                         <td>
                             <strong>
                                 <span class="glyphicon glyphicon-cloud text-primary"></span>  
-                                Last name                                                
+                                <p>Last name</p>                                                
                             </strong>
                         </td>
                         <td class="text-primary">
-                            <%=@user.last_name%>  
+                            <span class='pink'><%=@user.last_name%></span>  
                         </td>
                     </tr>
 
@@ -59,44 +58,44 @@
                         <td>
                             <strong>
                                 <span class="glyphicon glyphicon-envelope text-primary"></span> 
-                                Email                                                
+                                <p>Email</p>                                                
                             </strong>
                         </td>
                         <td class="text-primary">
-                            <%=@user.email%> 
+                            <span class='pink'><%=@user.email%></span> 
                         </td>
                     </tr>
                     <tr>        
                         <td>
                             <strong>
                                 <span class="glyphicon glyphicon-calendar text-primary"></span>
-                                Age                                                
+                                <p>Age</p>                                                
                             </strong>
                         </td>
                         <td class="text-primary">
-                            <%=@user.age%>
+                            <span class='pink'><%=@user.age%></span>
                         </td>
                     </tr>
                     <tr>        
                         <td>
                             <strong>
                                 <span class="glyphicon glyphicon-calendar text-primary"></span>
-                                Description                                                
+                                <p>Description</p>                                                
                             </strong>
                         </td>
                         <td class="text-primary">
-                             <%=@user.description%>
+                             <span class='pink'><%=@user.description%></span>
                         </td>
                     </tr>   
                           <tr>        
                         <td>
                             <strong>
                                 <span class="glyphicon glyphicon-calendar text-primary"></span>
-                                Ville                                                
+                                <p>Ville</p>                                               
                             </strong>
                         </td>
                         <td class="text-primary">
-                             <%=@city.name%>
+                             <span class='pink'><%=@user.city.name%></span>
                         </td>
                     </tr>                                                              
                 </tbody>
@@ -107,5 +106,3 @@
 </div>
 </div>                                        
 <p></p>
-
-  

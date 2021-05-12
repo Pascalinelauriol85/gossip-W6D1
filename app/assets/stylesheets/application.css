@@ -15,7 +15,7 @@
  */
 
  .pink {
-   color:deeppink; 
+   color:#ff1493; 
  }
  .red {
   color:rgb(131, 3, 20); 
@@ -34,4 +34,35 @@
 
 .carte {
   padding-top: 10%;
+}
+#pink-button {
+  color:deeppink; 
+  border: deeppink 1px solid;
+}
+
+#pink-button:hover {
+  background-color:deeppink; 
+  color:white; 
+}
+
+a {
+  color:deeppink; 
+  text-decoration: underline; 
+  transition: 0.25s ease;
+}
+
+a:hover{
+color: rgb(250, 187, 229);
+}
+
+#text {
+  color:rgb(231, 211, 228)
+}
+
+.btn1{
+  justify-content:space-around;
+  
+}
+.new-btn{
+  width: 400px;
 }

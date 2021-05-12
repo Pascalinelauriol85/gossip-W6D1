@@ -1,8 +1,0 @@
-class GossipsControllerController < ApplicationController
-
-
-
-end
-
-
-

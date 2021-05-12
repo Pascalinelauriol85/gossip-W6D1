@@ -1,0 +1,22 @@
+<div class="jumbotron text-center mt-5" style="border-top: 40px white solid;">
+    <div class="container">
+      <h1 class="display-4">Voici la ville <span class='pink'><%=@city.name%></span> !</h1>
+      
+   
+   
+ 
+</div>
+<%@city.users.each do |user|%>
+<%user.gossips.each do |gossip|%>
+     <div class= "row d-flex justify-content-evenly" style="background-color:#212529">
+      <div class="card mt-5" style="width: 18rem; border:deeppink 1px solid; background-color :transparent;">
+        <div class="card-body">
+          <h5 class="card-title text-center"><span class='pink'><%=gossip.title%></span></h5>
+            <p class="card-text text-center"id="text"><%=gossip.content%></p>
+              
+        </div>
+      </div> 
+    </div> 
+    <%end%>
+<%end%>
+

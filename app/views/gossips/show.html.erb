@@ -4,32 +4,42 @@
   <br>
   <br>
   <br>
-<div class= "text-center">
-  <h1><strong><span class='pink'>Gossip</span></strong></h1><br>
-</div>
 
-<div class= "text-center">
-  <h3><strong><span class='pink'><%=@gossips.content%></span></strong></h3><br>
-</div>
+  <div class="jumbotron text-center mt-5" style="border-top: 40px white solid;">
+        <div class="container">
+            <h1 class="display-4">Voici ton <span class='pink'>Gossip</span> !</h1>
+      
 
-<div class= "text-center">
-<a href=<%=user_path(@gossips.user.id)%>><button type="button"class="btn btn-outline-danger btn-lg px-4 me-sm-3 my-3">Vous voulez en savoir plus sur l'auteur</button></a>
-</div>
+            <div class= "text-center">
+                <h3><strong><span class='pink'><%=@gossip.title%></span></strong></h3><br>
+            </div>
+
+        <div class=btn1>
+            <a href=<%=user_path(@gossip.user.id)%>><button type="button"class="new-btn btn btn-outline btn-lg px-4 me-sm-3 my-3"id="pink-button">Vous voulez en savoir plus sur l'auteur</button></a>
+                      
+            <a href=<%=edit_gossip_path(@gossip.id)%>><button type="button"class="new-btn btn btn-outline btn-lg px-4 me-sm-3 my-3"id="pink-button">Modifier Gossip</button></a>
+           
+           <a href=<%=gossip_path(@gossip.id)%> class="btn btn-outline btn-lg px-4 me-sm-3 my-3"id="pink-button" data-confirm="Êtes-vous sûr ?" data-method="DELETE">Supprimer Gossip</a>
+         
+        </div>
+        </div>
+    </div>
+
 
 </header>
  <div class="container bootstrap snippets bootdey carte">
-<div class="panel-body inf-content">
-    <div class="row">
-       <div class="col-md-4">
+    <div class="panel-body inf-content">
+        <div class="row">
+            <div class="col-md-4">
             <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="https://bootdey.com/img/Content/avatar/avatar7.png" data-original-title="Usuario"> 
             <ul title="Ratings" class="list-inline ratings text-center">
-                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                <li><p><span class="glyphicon glyphicon-star"></span></p></li>
+                <li><p><span class="glyphicon glyphicon-star"></span></p></li>
+                <li><p><span class="glyphicon glyphicon-star"></span></p></li>
+                <li><p><span class="glyphicon glyphicon-star"></span></p></li>
+                <li><p><span class="glyphicon glyphicon-star"></span></p></li>
             </ul>
-        </div>
+            </div>
         <div class="col-md-6">
             <br>
             <div class="table-responsive">
@@ -39,22 +49,22 @@
                         <td>
                             <strong>
                                 <span class="glyphicon glyphicon-user  text-primary"></span>    
-                                First name                                                
+                                Prénom                                                 
                             </strong>
                         </td>
                         <td class="text-primary">
-                            <%=@gossips.user.first_name%>    
+                            <span class="pink"><%=@gossip.user.first_name%></span>   
                         </td>
                     </tr>
                     <tr>        
                         <td>
                             <strong>
                                 <span class="glyphicon glyphicon-lastname text-primary"></span>  
-                                Last name                                                
+                                Nom                                                
                             </strong>
                         </td>
                         <td class="text-primary">
-                            <%=@gossips.user.last_name%> 
+                            <span class="pink"><%=@gossip.user.last_name%></span>  
                         </td>
                     </tr>
 
@@ -62,21 +72,32 @@
                         <td>
                             <strong>
                                 <span class="glyphicon glyphicon-description text-primary"></span>
-                                Contenu                                                
+                                Contenu                                                 
                             </strong>
                         </td>
                         <td class="text-primary">
-                             <%=@gossips.content%>
+                             <span class="pink"><%=@gossip.content%></span> 
                         </td>
-                    </tr>                                    
+                    </tr>   
+                       <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-description text-primary"></span>
+                                Ville                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                             <span class="pink"><%=@gossip.user.city.name%></span> 
+                        </td>
+                    </tr>                                                        
                 </tbody>
             </table>
             </div>
         </div>
     </div>
-</div>
-</div>                                        
-<p></p>
+
+                                       
+
 
   
     
