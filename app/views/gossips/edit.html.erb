@@ -1,9 +1,12 @@
+<!-- Affichage en-tête -->
+
 <div class="jumbotron text-center mt-5" style="border-top: 40px white solid;">
     <div class="container">
-    <h1 class="display-5 fw-bold">G<span class='pink'>o</span>ssip Pr<span class='pink'>o</span>ject</h1>
-      <h1 class="display-4">Modifie ton <span class='pink'>Gossip</span> !</h1>
+      <h1 class="display-5 fw-bold">Modifie ton <span class='pink'>Gossip</span> !</h1>
       <p class="lead">Ecris pas de bétises cette fois-ci !!!!</p>
    
+ <!-- Message d'alerte -->
+
    <% if flash[:messages] %>
     <div class="container p-1 text-center alert  alert-danger" role="alert">
       <p>Nous n'avons pas réussi à modifier le potin pour la (ou les) raison(s) suivante(s) :</p>
@@ -14,6 +17,8 @@
       </ul>
     </div>
   <% end %>
+
+  <!-- Formulaire -->
 
 <%= form_for @gossip do |f| %>
 
@@ -29,7 +34,7 @@
 
   
     <div class="form-group">
-       <button type="submit"> Modifier le Gossip </button>
+       <button type="submit" id="pink-button"> Modifier le Gossip </button>
     </div>
 
 <%end%>

@@ -3,12 +3,13 @@
 
 <div class="jumbotron text-center mt-5" style="border-top: 40px white solid;">
     <div class="container">
-    <h1 class="display-5 fw-bold">G<span class='pink'>o</span>ssip Pr<span class='pink'>o</span>ject</h1>
-      <h1 class="display-4">Mon cher <span class='pink'>GossipBoy</span> !</h1>
+         <h1 class="display-4">Mon cher <span class='pink'>GossipBoy</span> !</h1>
        <h2 class="display-8">ou</h2>
       <h1 class="display-4">Ma chère <span class='pink'>GossipGirl</span> !</h1>
       <p class="lead">Il est temps de t'inscrire pour découvrir ce merveilleux site !!!!</p>
        
+
+<!-- Messages d'alerte -->
 
 <% if @user.errors.any? %>
   <div class="alert alert-danger">
@@ -20,7 +21,7 @@
   </div>     
 <%end%>
 
-
+<!-- Formulaire -->
 
 <%= form_for @user do |f| %>
 

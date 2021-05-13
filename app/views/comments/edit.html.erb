@@ -1,7 +1,7 @@
 <div class="jumbotron text-center mt-5" style="border-top: 40px white solid;">
     <div class="container">
-    <h1 class="display-5 fw-bold">G<span class='pink'>o</span>ssip Pr<span class='pink'>o</span>ject</h1>
-      <h1 class="display-4">Modifie ou supprime ton <span class='pink'>Commentaire</span> !</h1>
+    <h1 class=>G<span class='pink'>o</span>ssip Pr<span class='pink'>o</span>ject</h1>
+      <h1 class="display-5 fw-bold">Modifie ou supprime ton <span class='pink'>Commentaire</span> !</h1>
       
    
    <% if flash[:messages] %>
@@ -22,8 +22,8 @@
     </div>
     <br>
     <div class='form-group'>
-      <button type=submit class='btn btn-success'>Valider</button>
-      <a href="<%= gossip_comment_path(@comment.id) %>" class="btn btn-danger" data-confirm="êtes-vous sur?" data-method="DELETE">Supprimer</a>
+      <button type=submit class='btn btn' id="pink-button">Valider</button>
+      <a href="<%= gossip_comment_path(@comment.id) %>" class="btn btn" id="pink-button" data-confirm="êtes-vous sur?" data-method="DELETE">Supprimer</a>
     </div>
 
 <% end %>

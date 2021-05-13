@@ -94,17 +94,24 @@
             </table>
             </div>
         </div>
+
+
+      <!-- Date -->  
          <div class='mx-5 m-2' >
     <p class='text-muted'><%=@gossip.created_at.strftime("Ecrit le %d %B, %Y")%></p>
 
+    <!-- Confirmation de la suppression -->
+
     <%if session[:user_id]== @gossip.user.id%>
       <div class='text-center'>
-        <a href="<%= gossip_path(@gossip.id) %>" class="btn btn-danger my-3" data-confirm="êtes-vous sur?" data-method="DELETE">Supprimer le Potin</a>
-        <a href=<%=edit_gossip_path(@gossip.id)%>><button type="button"class="btn btn-outline-warning me-sm-3 m-3">Modifier le potin</button></a> 
+        <a href="<%= gossip_path(@gossip.id) %>" class="btn btn my-3" data-confirm="êtes-vous sur?" data-method="DELETE" id="pink-button">Supprimer le Potin</a>
+        <a href=<%=edit_gossip_path(@gossip.id)%>><button type="button"class="btn btn-outline me-sm-3 m-3" id="pink-button">Modifier le potin</button></a> 
       </div>
     <%end%>
 
   </div>
+
+<!-- Affichage des commentaires -->
 
  <div class='px-5 p-3 bg-light'>
     <h3><span class='pink'>Commentaires</span> (<%=@gossip.comments.size%>)</h3>
@@ -115,25 +122,15 @@
     </div>
 
     <br>
-      <% if flash[:notice] %>
-        <div class="container p-1 text-center alert  alert-success" role="alert"><%= flash[:notice] %></div>
-      <% end %>
-      <% if flash[:messages] %>
-        <div class="container p-1 text-center alert  alert-danger" role="alert">
-          <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
-          <ul>
-            <% flash[:messages].each do |message| %>
-              <li><%=message%></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+<!-- Affichage en tête -->
     <div class='form-group'>
-      <button type=submit class='btn btn-success'>Valider</button>
+      <button type=submit class='btn btn' id="pink-button">Valider</button>
     </div>
   <% end %>
   <br>
   </div>
+
+  <!-- Affichage des commentaires déjà postés -->
   <div class='px-5 bg-light'>
     <%@gossip.comments.each do |comment|%>
       <p><i class="far fa-id-card"></i>  <%=comment.user.first_name%> <%=comment.user.last_name%></p>
@@ -147,6 +144,24 @@
     <%end%>
   </div>
     </div>
+
+<!-- Message d'alerte -->
+
+      <% if flash[:notice] %>
+        <div class="container p-1 text-center alert  alert-success" role="alert"><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:messages] %>
+        <div class="container p-1 text-center alert  alert-danger" role="alert">
+          <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+          <ul>
+            <% flash[:messages].each do |message| %>
+              <li><%=message%></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
 
                                        
 
