@@ -39,6 +39,14 @@
   color:deeppink; 
   border: deeppink 1px solid;
 }
+#pink-danger {
+  color:deeppink; 
+  border: deeppink 1px solid;
+}
+#pink-danger:hover {
+  background-color:rgb(255, 20, 20); 
+  color:white; 
+}
 
 #pink-button:hover {
   background-color:deeppink; 
@@ -56,13 +64,33 @@ color: rgb(250, 187, 229);
 }
 
 #text {
-  color:rgb(231, 211, 228)
+  color:rgb(155, 8, 133)
 }
 
 .btn1{
   justify-content:space-around;
   
 }
+
 .new-btn{
   width: 400px;
 }
+
+#pink {
+  color:deeppink; 
+}
+
+#pink-button:hover {
+  background-color:deeppink; 
+  color:white; 
+}
+
+#texte {
+  color:rgb(243, 198, 236)
+}
+
+.card-body{
+  text-align: center;
+}
+
+

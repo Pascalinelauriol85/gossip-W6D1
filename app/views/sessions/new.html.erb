@@ -1,0 +1,32 @@
+
+<div class="jumbotron text-center mt-5" style="border-top: 40px white solid;">
+     <div class="container">
+       <h1 class="display-5 fw-bold">G<span class='pink'>o</span>ssip Pr<span class='pink'>o</span>ject</h1>
+       <p class="lead">Tu fais déjà partie de la famille... Super !!!</p>
+
+
+
+<div class='container my-5 py-4 '>
+  <% if flash[:danger] %>
+    <br>
+    <div class="container p-1 text-center alert  alert-danger" role="alert"><%= flash[:danger] %></div>
+  <% end %>
+  
+  <%= form_tag url_for(action: 'create'), method: "post" do %>
+
+    <div class='form-group'>
+      <label><span class='pink'>Email</span></label><br>
+      <%= email_field_tag 'email',"", class:'form-control' %>
+    </div>
+    <br>
+    <div class='form-group'>
+      <label><span class='pink'>Mot de passe</span></label><br>
+      <%= password_field_tag 'password',"", class:'form-control' %>
+    </div>
+    <br>                     
+    <div class='form-group text-center'>
+      <button type=submit class="new-btn btn btn-outline btn-lg px-4 me-sm-3 my-3"id="pink-button">Se connecter</button>
+    </div>
+
+  <% end %>
+</div>

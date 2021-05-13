@@ -6,13 +6,12 @@ class Gossip < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  validates :title,   
-  presence: {message:"Le titre est obligatoire"}  
-  validates :title, length: {minimum: 3, maximum: 20, message:"Le titre doit faire entre 3 et 20 caractères"}
-  
-
-  validates :content,   
-  presence: {message:"Le potin est obligatoire"} 
-  validates :content, length: {minimum: 10, message:"Le content doit avoir minimum 10 caractères"}
+  validates :title, 
+  presence: {message:"Le titre est obligatoire"}, 
+  length:   {minimum: 2,maximum: 30, message:"Le titre doit faire entre 2 et 30 caractères"}
+    
+  validates :content,
+  presence: {message:"Le potin est obligatoire"},
+  length:   {minimum: 10, message:"Le potin doit faire minimum 10 caractères"}
 
 end

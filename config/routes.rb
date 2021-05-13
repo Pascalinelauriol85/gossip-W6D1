@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
   
-  resources :gossips 
+  resources :gossips do
+    resources :comments, only: [:edit, :destroy, :new, :create, :update]
+  end
 
   resources :cities
 
   resources :users
 
-  root 'static#home'
+  resources :sessions, only: [:new, :create, :destroy]
+
+  root 'gossips#index'
 
   get '/team', to: 'static#team'
 

@@ -1,9 +1,20 @@
 <div class="jumbotron text-center mt-5" style="border-top: 40px white solid;">
     <div class="container">
+    <h1 class="display-5 fw-bold">G<span class='pink'>o</span>ssip Pr<span class='pink'>o</span>ject</h1>
       <h1 class="display-4">Modifie ton <span class='pink'>Gossip</span> !</h1>
       <p class="lead">Ecris pas de bétises cette fois-ci !!!!</p>
    
-   
+   <% if flash[:messages] %>
+    <div class="container p-1 text-center alert  alert-danger" role="alert">
+      <p>Nous n'avons pas réussi à modifier le potin pour la (ou les) raison(s) suivante(s) :</p>
+      <ul>
+        <% flash[:messages].each do |message| %>
+          <li><%=message%></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <%= form_for @gossip do |f| %>
 
    <div class="form-group">
@@ -22,3 +33,7 @@
     </div>
 
 <%end%>
+
+<div class='p-5 m-5 text-center'>
+    <i class="fas fa-code fa-10x"></i>
+  </div>

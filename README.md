@@ -22,11 +22,15 @@ Like
 Private message  
 Tag      
 
+### Views
+Cities
+Gossips
+Sessions
+Users
+
+
 ### Pour test
-Ouvrir le dossier  
-Faire  
- ```Bundle install```        
-Lancer     
-```rails db:seed```    
-Et lancer la console rails pour test     
-```rails console```  
+Lancer
+rails server`` Puis aller sur http://localhost:3000/``
+Sur votre navigateur favori...
+Enjoy...

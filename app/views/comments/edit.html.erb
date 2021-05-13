@@ -1,0 +1,29 @@
+<div class="jumbotron text-center mt-5" style="border-top: 40px white solid;">
+    <div class="container">
+    <h1 class="display-5 fw-bold">G<span class='pink'>o</span>ssip Pr<span class='pink'>o</span>ject</h1>
+      <h1 class="display-4">Modifie ou supprime ton <span class='pink'>Commentaire</span> !</h1>
+      
+   
+   <% if flash[:messages] %>
+    <div class="container p-1 text-center alert  alert-danger" role="alert">
+      <p>Nous n'avons pas réussi à modifier le commentaire pour la (ou les) raison(s) suivante(s) :</p>
+      <ul>
+        <% flash[:messages].each do |message| %>
+          <li><%=message%></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= form_for @comment, url: gossip_comment_path, method: :put do |f| %>
+
+    <div class='form-group'>
+      <%= f.text_area :content, value:@comment.content, autofocus: true, class:'form-control' %>
+    </div>
+    <br>
+    <div class='form-group'>
+      <button type=submit class='btn btn-success'>Valider</button>
+      <a href="<%= gossip_comment_path(@comment.id) %>" class="btn btn-danger" data-confirm="êtes-vous sur?" data-method="DELETE">Supprimer</a>
+    </div>
+
+<% end %>

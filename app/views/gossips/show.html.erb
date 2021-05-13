@@ -1,12 +1,9 @@
 
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-
+  <!-- Affichage de l'en-tête -->
+  
   <div class="jumbotron text-center mt-5" style="border-top: 40px white solid;">
         <div class="container">
+        <h1 class="display-5 fw-bold">G<span class='pink'>o</span>ssip Pr<span class='pink'>o</span>ject</h1>
             <h1 class="display-4">Voici ton <span class='pink'>Gossip</span> !</h1>
       
 
@@ -14,19 +11,22 @@
                 <h3><strong><span class='pink'><%=@gossip.title%></span></strong></h3><br>
             </div>
 
+<!-- Affichage des boutons -->
+
         <div class=btn1>
             <a href=<%=user_path(@gossip.user.id)%>><button type="button"class="new-btn btn btn-outline btn-lg px-4 me-sm-3 my-3"id="pink-button">Vous voulez en savoir plus sur l'auteur</button></a>
                       
             <a href=<%=edit_gossip_path(@gossip.id)%>><button type="button"class="new-btn btn btn-outline btn-lg px-4 me-sm-3 my-3"id="pink-button">Modifier Gossip</button></a>
            
-           <a href=<%=gossip_path(@gossip.id)%> class="btn btn-outline btn-lg px-4 me-sm-3 my-3"id="pink-button" data-confirm="Êtes-vous sûr ?" data-method="DELETE">Supprimer Gossip</a>
+            <a href=<%=gossip_path(@gossip.id)%> class="new-btn btn btn-outline btn-lg px-4 me-sm-3 my-3"id="pink-danger" data-confirm="Êtes-vous sûr ?" data-method="DELETE">Supprimer Gossip</a>
          
         </div>
         </div>
     </div>
 
-
 </header>
+
+<!-- Affichage des boutons -->
  <div class="container bootstrap snippets bootdey carte">
     <div class="panel-body inf-content">
         <div class="row">
@@ -94,6 +94,58 @@
             </table>
             </div>
         </div>
+         <div class='mx-5 m-2' >
+    <p class='text-muted'><%=@gossip.created_at.strftime("Ecrit le %d %B, %Y")%></p>
+
+    <%if session[:user_id]== @gossip.user.id%>
+      <div class='text-center'>
+        <a href="<%= gossip_path(@gossip.id) %>" class="btn btn-danger my-3" data-confirm="êtes-vous sur?" data-method="DELETE">Supprimer le Potin</a>
+        <a href=<%=edit_gossip_path(@gossip.id)%>><button type="button"class="btn btn-outline-warning me-sm-3 m-3">Modifier le potin</button></a> 
+      </div>
+    <%end%>
+
+  </div>
+
+ <div class='px-5 p-3 bg-light'>
+    <h3><span class='pink'>Commentaires</span> (<%=@gossip.comments.size%>)</h3>
+    <%= form_tag gossip_comments_path(@gossip.id), method: "post" do %>
+    <div class='form-group'>
+      <label>Nouveau commentaire</label><br>
+      <%= text_field_tag 'content',"", class: 'form-control'%>
+    </div>
+
+    <br>
+      <% if flash[:notice] %>
+        <div class="container p-1 text-center alert  alert-success" role="alert"><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:messages] %>
+        <div class="container p-1 text-center alert  alert-danger" role="alert">
+          <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+          <ul>
+            <% flash[:messages].each do |message| %>
+              <li><%=message%></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    <div class='form-group'>
+      <button type=submit class='btn btn-success'>Valider</button>
+    </div>
+  <% end %>
+  <br>
+  </div>
+  <div class='px-5 bg-light'>
+    <%@gossip.comments.each do |comment|%>
+      <p><i class="far fa-id-card"></i>  <%=comment.user.first_name%> <%=comment.user.last_name%></p>
+      <p><i class="fas fa-feather-alt"></i>  <%=comment.content%>
+      <p class='text-muted date'><%=comment.created_at%>
+      <br>
+      <%if session[:user_id]== comment.user.id%>
+        <a class='text-left' href="<%= edit_gossip_comment_path(gossip_id:@gossip.id,id:comment.id) %>" class="btn btn-link">Modifier</a>
+      <%end%>
+      <hr>
+    <%end%>
+  </div>
     </div>
 
                                        

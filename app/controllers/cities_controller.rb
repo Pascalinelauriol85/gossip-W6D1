@@ -1,8 +1,14 @@
 class CitiesController < ApplicationController
+  
+  
   def index 
-    
+    @city = City.all
   end
 
+
+  def new
+    @city = City.new
+  end
   
 
   def show
@@ -10,7 +16,5 @@ class CitiesController < ApplicationController
   end
  
   
-
-
  
 end

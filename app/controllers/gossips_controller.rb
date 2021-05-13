@@ -1,21 +1,24 @@
 class GossipsController < ApplicationController
-  
+  before_action :authenticate_user, only: [:new,:create,:show]
+  before_action :super_user , only: [:edit,:update,:destroy]
+
+  def index 
+    @gossips = Gossip.all
+  end
+
   def new
     @gossip = Gossip.new
   end
 
   def create
-  @gossip = Gossip.new(content:params[:content], title:params[:title],user_id:11) # avec xxx qui sont les données obtenues à partir du formulaire
-
-      if @gossip.save # essaie de sauvegarder en base @gossip
-    # si ça marche, il redirige vers la page d'index du site
-    redirect_to root_path, notice: "Le potin '#{@gossip.title.capitalize}' a bien été créé ! Félicitation"
-      else
-    # sinon, il render la view new (qui est celle sur laquelle on est déjà)
-    flash.now[:messages] = @gossip.errors.full_messages
+    @gossip = Gossip.new(content:params[:content],title:params[:title],user_id:session[:user_id])
+    if @gossip.save
+      redirect_to root_path, notice: "Le potin '#{@gossip.title.capitalize}' a bien été créé ! Félicitation"
+    else
+      flash.now[:messages] = @gossip.errors.full_messages
       render new_gossip_path
-      end
-  end 
+    end
+  end
 
   def show
     @gossip = Gossip.find(params[:id])
@@ -28,8 +31,9 @@ class GossipsController < ApplicationController
   def update
     @gossip = Gossip.find(params[:id])
     if @gossip.update(gossip_params)
-    redirect_to @gossip
+    redirect_to gossip_path(params[:id]), notice: "Le potin '#{@gossip.title.capitalize}' a bien été modifié !"
     else
+      flash.now[:messages] = @gossip.errors.full_messages
       render :edit
     end  
   end 
@@ -37,12 +41,19 @@ class GossipsController < ApplicationController
   def destroy
     @gossip = Gossip.find(params[:id])
     @gossip.destroy
-    redirect_to root_path
+    redirect_to gossips_path, notice: "Le potin '#{@gossip.title.capitalize}' a bien été détruit !"
   end
 
   private 
   def gossip_params
     params.require(:gossip).permit(:title, :content) 
+  end
+
+  def super_user
+    unless current_user == Gossip.find(params[:id]).user
+      flash[:danger] = "Vous n'êtes pas le créateur de ce potin....Si oui, prouvez le"
+      redirect_to new_session_path
+    end
   end
 
 end
